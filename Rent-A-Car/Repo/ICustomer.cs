@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rent_A_Car.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace Rent_A_Car.Repo
 {
     internal interface ICustomer
     {
+        void DeleteCustomer(int id);
+        Customer GetCustomer(int id);
+        string NewCustomer(string nam, string pho);
     }
 }

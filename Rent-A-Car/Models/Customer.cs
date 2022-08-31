@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.Models
 {
-    public class Customer : ICustomer
+    public class Customer 
     {
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }

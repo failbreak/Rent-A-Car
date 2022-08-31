@@ -17,7 +17,7 @@ namespace Rent_A_Car.Repo
         {
             throw new NotImplementedException();
         }
-        public void GetCustomer(int id) => _customer.Find(customer => id == customer.CustomerId);
+        public Customer GetCustomer(int id) => _customer.Find(customer => id == customer.CustomerId);
         public void DeleteCustomer(int id) => _customer.Remove(_customer.Find(customer => id == customer.CustomerId));
         public string NewCustomer(string nam, string pho)
         {
