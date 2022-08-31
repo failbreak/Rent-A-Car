@@ -7,22 +7,20 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.Models
 {
-    public class Car : ICar
+    public class Car
     {
-        public int CarId { get; set; }
         public string NumberPlate { get; set; }
         public int Seats { get; set; }
         public string CarColor { get; set; }
-        public CarBrand CarBrand { get; set; }
-        private List<Reservation> Reservations { get; set;}
+        public string CarBrand { get; set; }
+        public List<Reservation> Reservations { get; set;}
         
-        public Car(int _CarId, string _NumberPlate, int _Seats, string _CarColor, CarBrand _CarBrand)
+        public Car(string numberPlate, int seats, string carColor, string carBrand)
         {
-            CarId = _CarId;
-            NumberPlate = _NumberPlate;
-            Seats = _Seats;
-            CarColor = _CarColor;
-            CarBrand = _CarBrand;
+            NumberPlate = numberPlate;
+            Seats = seats;
+            CarColor = carColor;
+            CarBrand = carBrand;
         }
 
     }
