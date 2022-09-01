@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.Repo
 {
-    internal interface ICustomer
+    public interface ICustomer
     {
         void DeleteCustomer(int id);
         Customer GetCustomer(int id);
-        string NewCustomer(string nam, string pho);
+        string NewCustomer(string name, string phone);
     }
 }

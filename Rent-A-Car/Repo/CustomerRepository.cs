@@ -19,17 +19,17 @@ namespace Rent_A_Car.Repo
         }
         public Customer GetCustomer(int id) => _customer.Find(customer => id == customer.CustomerId);
         public void DeleteCustomer(int id) => _customer.Remove(_customer.Find(customer => id == customer.CustomerId));
-        public string NewCustomer(string nam, string pho)
+        public string NewCustomer(string name, string phone)
         {
             try
             {
                 ++_countIncr;
-                customer = new Customer(_countIncr, nam, pho);
+                customer = new Customer(_countIncr, name, phone);
                 _customer.Add(customer);
                 return $"Customer \n" +
                     $"ID: {_countIncr}" +
-                    $"Name: {nam}" +
-                    $"Phone: {pho}";
+                    $"Name: {name}" +
+                    $"Phone: {phone}";
             }
             catch (Exception)
             {

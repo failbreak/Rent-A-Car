@@ -10,8 +10,8 @@ namespace Rent_A_Car.Repo
     public interface ICarRep
     {
         void DeleteCar(string num);
-        string EditCar(string num, int sea, string bra, string col);
+        string EditCar(string num, int seats, string brandnd, string color, int km);
         Car GetCar(string num);
-        string NewCar(string num, int sea, string col, string bra);
+        string RegisterCar(string num, int seats, string color, string brandnd, int km);
     }
 }

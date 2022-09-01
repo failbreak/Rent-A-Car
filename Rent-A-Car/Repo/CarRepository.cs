@@ -24,18 +24,19 @@ namespace Rent_A_Car.Repo
             throw new NotImplementedException();
         }
         public Car GetCar(string num) => _Cars.Find(car => num == car.NumberPlate);
-        public string NewCar(string num, int sea,  string col, string bra)
+        public string RegisterCar(string num, int seats,  string color, string brandnd, int km)
         {
             try
             {
                 
-                car = new Car(num, sea, col, bra);
+                car = new Car(num, seats, color, brandnd, km);
                 _Cars.Add(car);
                 return $"Car created with: \n" +
                     $"NumberPlate: {num}\n" +
-                    $"Seats: {sea}\n" +
-                    $"Color: {col}\n" +
-                    $"Brand: {bra}";
+                    $"seats: {seats}\n" +
+                    $"Color: {color}\n" +
+                    $"brandnd: {brandnd} \n" +
+                    $"Km: {km}";
             }
             catch (Exception)
             {
@@ -45,17 +46,18 @@ namespace Rent_A_Car.Repo
         }
         public void DeleteCar(string num) => _Cars.Remove(_Cars.Find(car => num == car.NumberPlate));
 
-        public string EditCar(string num, int sea, string bra, string col)
+        public string EditCar(string num, int seats, string brandnd, string color, int km)
         {
             Car caren = GetCar(num);
-            caren.Seats = sea;
-            caren.CarBrand = bra;
-            caren.CarColor = col;
+            caren.CarSeats = seats;
+            caren.CarBrand = brandnd;
+            caren.CarColor = color;
             return $"Car edit with: \n" +
                     $"NumberPlate: {num}\n" +
-                    $"Seats: {sea}\n" +
-                    $"Color: {col}\n" +
-                    $"Brand: {bra}";
+                    $"Seats: {seats}\n" +
+                    $"Color: {color}\n" +
+                    $"Brand: {brandnd}" +
+                    $"Km: {km}";
         }
         #endregion
     }
