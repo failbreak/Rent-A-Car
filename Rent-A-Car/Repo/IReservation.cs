@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.Repo
 {
-    internal interface IReservation
+    public interface IReservation
     {
+
     }
 }

@@ -35,9 +35,9 @@ namespace Rent_A_Car
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.D1 or ConsoleKey.NumPad1:
-                        List<string> CarMenu = new() { "Register Car", "Edit Car" };
+                        List<string> CarMenu = new() { "Register Car", "Edit Car", "Delete car" };
                         Console.WriteLine("Car Menu:");
-                        
+
                         switch (Console.ReadKey(true).Key)
                         {
 
@@ -105,23 +105,20 @@ namespace Rent_A_Car
                                                     case ConsoleKey.N:
                                                         Console.Clear();
                                                         Console.Write("Number of seats: ");
-                                                        int.TryParse(Console.ReadLine(), out int seatsEdited);
-                                                        seats = seatsEdited;
+                                                        int.TryParse(Console.ReadLine(), out int seatsEdit);
+                                                        seats = seatsEdit;
                                                         Console.Write("\nColor: ");
                                                         color = Console.ReadLine();
                                                         Console.Write("\nbrandnd: ");
                                                         brand = Console.ReadLine();
                                                         Console.Write("\nKm: ");
-                                                        int.TryParse(Console.ReadLine(), out int kmEdited);
-                                                        km = kmEdited;
+                                                        int.TryParse(Console.ReadLine(), out int kmEdit);
+                                                        km = kmEdit;
                                                         break;
                                                     default:
                                                         Console.Clear();
                                                         break;
                                                 }
-
-
-
                                             } while (exit);
                                             break;
 
@@ -129,38 +126,54 @@ namespace Rent_A_Car
                                             Console.Clear();
                                             break;
                                     }
-
-
                                 } while (exit);
                                 break;
                             #endregion
 
                             case ConsoleKey.D2 or ConsoleKey.NumPad2:
+                                Console.WriteLine("Numberplate: ");
+                                string numberplate = Console.ReadLine();
+                                Console.Write("Number of seats: ");
+                                int.TryParse(Console.ReadLine(), out int seatsEdited);
+                                Console.Write("\nColor: ");
+                                color = Console.ReadLine();
+                                Console.Write("\nBrand: ");
+                                brand = Console.ReadLine();
+                                Console.Write("\nKm: ");
+                                int.TryParse(Console.ReadLine(), out int kmEdited);
+                                km = kmEdited;
+                                seats = seatsEdited;
+                                carMM.carRepo.EditCar(numberplate, seats, brand, color, km);
+                                break;
 
+                            case ConsoleKey.D3 or ConsoleKey.NumPad3:
+                                Console.WriteLine("Numberplate: ");
+                                numberplate = Console.ReadLine();
+                                carMM.carRepo.DeleteCar(numberplate);
                                 break;
                             default:
                                 Console.Clear();
                                 break;
                         }
-
                         break;
 
                     case ConsoleKey.D2 or ConsoleKey.NumPad2:
-
+                        List<string>
+                        switch ()
+                        {
+                            default:
+                                break;
+                        }
                         break;
 
                     case ConsoleKey.D3 or ConsoleKey.NumPad3:
 
                         break;
-
-
-
                     default:
                         Console.Clear();
                         break;
                 }
             }
         }
-
     }
 }
