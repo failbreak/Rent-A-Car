@@ -5,8 +5,10 @@ namespace Rent_A_Car.Repo
     public class CustomerRepository : ICustomer
     {
         public Customer customer { get; set; }
+        public Reservation reservation { get; set; }
         private readonly List<Customer> _customer;
         int _countIncr;
+        private List<Reservation> _reservation { get; set; }
 
         public CustomerRepository()
         {
@@ -18,6 +20,7 @@ namespace Rent_A_Car.Repo
             throw new NotImplementedException();
         }
         public Customer GetCustomer(int id) => _customer.Find(customer => id == customer.CustomerId);
+        public Customer GetCustomerByPhone(string phone) => _customer.Find(customer => phone == customer.CustomerPhone);
         public void DeleteCustomer(int id) => _customer.Remove(_customer.Find(customer => id == customer.CustomerId));
         public string NewCustomer(string name, string phone)
         {
@@ -36,6 +39,13 @@ namespace Rent_A_Car.Repo
                 throw;
             }
             #endregion
+        }
+        public string MakeReservation(string customerPhone, string carPlate, DateTime reservedFrom, DateTime reservedTo)
+        {
+            reservation = new Reservation(customerPhone, carPlate, reservedFrom, reservedTo);
+            _reservation.Add(reservation);
+
+            return $"Customer test";
         }
     }
 }

@@ -1,12 +1,4 @@
 ﻿using Rent_A_Car.Models;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Rent_A_Car.Repo
 {
@@ -24,11 +16,10 @@ namespace Rent_A_Car.Repo
             throw new NotImplementedException();
         }
         public Car GetCar(string num) => _Cars.Find(car => num == car.NumberPlate);
-        public string RegisterCar(string num, int seats,  string color, string brandnd, int km)
+        public string RegisterCar(string num, int seats, string color, string brandnd, int km)
         {
             try
             {
-                
                 car = new Car(num, seats, color, brandnd, km);
                 _Cars.Add(car);
                 return $"Car created with: \n" +
@@ -45,7 +36,6 @@ namespace Rent_A_Car.Repo
             }
         }
         public void DeleteCar(string num) => _Cars.Remove(_Cars.Find(car => num == car.NumberPlate));
-
         public string EditCar(string num, int seats, string brandnd, string color, int km)
         {
             Car caren = GetCar(num);

@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Rent_A_Car.Repo;
-using Rent_A_Car.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Rent_A_Car.Repo;
 
 namespace Rent_A_Car.BLL
 {
@@ -15,7 +8,7 @@ namespace Rent_A_Car.BLL
 
         public CustomerMM(ICustomer customer)
         {
-            customerRep = customer; 
+            customerRep = customer;
         }
     }
 }

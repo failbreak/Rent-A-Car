@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Rent_A_Car.BLL;
 using Rent_A_Car.Repo;
-
 namespace Rent_A_Car
 {
     public class Program
@@ -18,7 +17,6 @@ namespace Rent_A_Car
 
             Menu(carMM, cusMM);
         }
-
         public static void Menu(CarMM carMM, CustomerMM cusMM)
         {
             List<string> MainMenu = new()
@@ -26,7 +24,6 @@ namespace Rent_A_Car
                 "Car Menu",
                 "Customer menu"
             };
-
             while (true)
             {
                 Console.Clear();
@@ -40,8 +37,6 @@ namespace Rent_A_Car
 
                         switch (Console.ReadKey(true).Key)
                         {
-
-
                             #region Register Car
                             case ConsoleKey.D1 or ConsoleKey.NumPad1:
                                 List<string> CreateMenu = new() { "Confirm", "Edit" };
@@ -85,7 +80,6 @@ namespace Rent_A_Car
                                             carMM.carRepo.RegisterCar(num, seats, color, brand, km);
                                             exit = false;
                                             break;
-
                                         case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                             do
                                             {
@@ -101,7 +95,6 @@ namespace Rent_A_Car
                                                         carMM.carRepo.RegisterCar(num, seats, color, brand, km);
                                                         exit = false;
                                                         break;
-
                                                     case ConsoleKey.N:
                                                         Console.Clear();
                                                         Console.Write("Number of seats: ");
@@ -129,7 +122,6 @@ namespace Rent_A_Car
                                 } while (exit);
                                 break;
                             #endregion
-
                             case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                 Console.WriteLine("Numberplate: ");
                                 string numberplate = Console.ReadLine();
@@ -158,16 +150,29 @@ namespace Rent_A_Car
                         break;
 
                     case ConsoleKey.D2 or ConsoleKey.NumPad2:
-                        List<string>
-                        switch ()
+                        List<string> CusMenu = new() { "Register new customer", "Edit customer", "Delete customer" };
+                        Console.WriteLine("Customer Menu:");
+                        switch (Console.ReadKey(true).Key)
                         {
+                            case ConsoleKey.D1 or ConsoleKey.NumPad1:
+                                string name = Console.ReadLine();
+                                int.TryParse(Console.ReadLine(), out int intphone);
+                                string phone = intphone.ToString();
+                                cusMM.customerRep.NewCustomer(name, phone);
+                                break;
+
+                            case ConsoleKey.D2 or ConsoleKey.NumPad2:
+                                phone = Console.ReadLine();
+                                string numberplate = Console.ReadLine();
+                                DateTime date = DateTime.Now;
+                                DateTime.TryParse(Console.ReadLine(), out DateTime result);
+                                cusMM.customerRep.MakeReservation(phone, numberplate, date, result);
+                                break;
                             default:
                                 break;
                         }
                         break;
-
                     case ConsoleKey.D3 or ConsoleKey.NumPad3:
-
                         break;
                     default:
                         Console.Clear();
