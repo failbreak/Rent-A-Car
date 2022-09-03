@@ -8,11 +8,12 @@ namespace Rent_A_Car.Repo
         public Reservation reservation { get; set; }
         private readonly List<Customer> _customer;
         int _countIncr;
-        private List<Reservation> _reservation { get; set; }
+       private List<Reservation> _reservation { get; set; }
 
         public CustomerRepository()
         {
             _customer = new List<Customer>();
+            _reservation = new List<Reservation>();
         }
         #region Customer
         public void GetCustomer()

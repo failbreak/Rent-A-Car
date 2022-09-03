@@ -16,6 +16,19 @@ namespace Rent_A_Car.Repo
             throw new NotImplementedException();
         }
         public Car GetCar(string num) => _Cars.Find(car => num == car.NumberPlate);
+        public void GetAllCars()
+        {
+            foreach (Car cars in _Cars)
+            {
+                Console.WriteLine($"Car: \n"+
+                    $"{cars.NumberPlate} \n" +
+                    $"{cars.CarColor} \n" +
+                    $"{cars.CarBrand} \n" +
+                    $"{cars.CarSeats} \n" +
+                    $"{cars.CarKm}  \n");
+            }
+        }
+
         public string RegisterCar(string num, int seats, string color, string brandnd, int km)
         {
             try
