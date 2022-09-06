@@ -4,6 +4,7 @@ namespace Rent_A_Car.Repo
     public interface ICustomer
     {
         void DeleteCustomer(int id);
+        Customer DelReservation(string phone);
         Customer GetCustomer(int id);
         Customer GetCustomerByPhone(string phone);
         string MakeReservation(string customerPhone, string carPlate, DateTime reservedFrom, DateTime reservedTo);

@@ -9,5 +9,6 @@ namespace Rent_A_Car.Repo
         void GetAllCars();
         Car GetCar(string num);
         string RegisterCar(string num, int seats, string color, string brand, int km);
+        Car ReturnedCar(string numberplate, int km);
     }
 }

@@ -21,10 +21,10 @@ namespace Rent_A_Car.Repo
             foreach (Car cars in _Cars)
             {
                 Console.WriteLine($"Car: \n"+
-                    $"{cars.NumberPlate} \n" +
-                    $"{cars.CarColor} \n" +
-                    $"{cars.CarBrand} \n" +
-                    $"{cars.CarSeats} \n" +
+                    $"{cars.NumberPlate}, " +
+                    $"{cars.CarColor}, " +
+                    $"{cars.CarBrand}, " +
+                    $"{cars.CarSeats}, " +
                     $"{cars.CarKm}  \n");
             }
         }
@@ -61,6 +61,16 @@ namespace Rent_A_Car.Repo
                     $"Color: {color}\n" +
                     $"Brand: {brandnd}" +
                     $"Km: {km}";
+        }
+        public Car ReturnedCar(string numberplate, int km)
+        {
+            Car car = GetCar(numberplate);
+            car.CarKm += km;
+            if (car.CarKm == 200000)
+            {
+                DeleteCar(numberplate);
+            }
+            return car;
         }
         #endregion
     }
