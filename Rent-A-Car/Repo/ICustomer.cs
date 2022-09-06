@@ -8,5 +8,6 @@ namespace Rent_A_Car.Repo
         Customer GetCustomerByPhone(string phone);
         string MakeReservation(string customerPhone, string carPlate, DateTime reservedFrom, DateTime reservedTo);
         string NewCustomer(string name, string phone);
+        string? PhoneValids(string phone);
     }
 }

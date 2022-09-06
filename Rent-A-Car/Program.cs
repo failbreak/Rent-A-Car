@@ -27,6 +27,53 @@ namespace Rent_A_Car
             int menuIncr = 0;
             values.ForEach(item => Console.WriteLine(++menuIncr + ") " + item));
         }
+
+        public static string BrandsSelect()
+        {
+            List<string> BrandsList = new()
+            {
+               "BMW",
+               "Wolksvagen",
+               "Volvo",
+               "Opel",
+               "Fiat"
+            };
+            bool exit = true;
+                string brand;
+            do
+            {
+                Console.Clear();
+                DisplayMenu(BrandsList);
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.D1 or ConsoleKey.NumPad1:
+                        brand = BrandsList[0];
+                        exit = false;
+                        break;
+                    case ConsoleKey.D2 or ConsoleKey.NumPad2:
+                        brand = BrandsList[1];
+                        break;
+                    case ConsoleKey.D3 or ConsoleKey.NumPad3:
+                        brand = BrandsList[2];
+                        exit = false;
+                        break;
+                    case ConsoleKey.D4 or ConsoleKey.NumPad4:
+                        brand = BrandsList[3];
+                        exit = false;
+                        break;
+                    case ConsoleKey.D5 or ConsoleKey.NumPad5:
+                        brand = BrandsList[4];
+                        exit = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        exit = true;
+                        brand = "BMW";
+                        break;
+                }
+            } while (exit);
+            return brand;
+        }
         public static DateTime RentingPlan()
         {
             List<string> plans = new()
@@ -45,6 +92,9 @@ namespace Rent_A_Car
                     case ConsoleKey.D1 or ConsoleKey.NumPad1:
                         RTo = DateTime.Now.AddDays((double)30);
                         exit = false;
+                        break;
+                    case ConsoleKey.D2 or ConsoleKey.NumPad2:
+                        RTo = DateTime.Now.AddDays((double)60);
                         break;
                     default:
                         Console.Clear();
@@ -132,7 +182,6 @@ namespace Rent_A_Car
             return colors;
         }
 
-
         public static void Menu(CarMM carMM, CustomerMM cusMM)
         {
             List<string> MainMenu = new()
@@ -212,7 +261,6 @@ namespace Rent_A_Car
                                                     case ConsoleKey.N:
                                                         Console.Clear();
                                                         Console.Write("Number of seats: ");
-
                                                         seats = Seats();
                                                         Console.Write("\nColor: ");
                                                         color = Console.ReadLine();
@@ -285,14 +333,23 @@ namespace Rent_A_Car
 
                             case ConsoleKey.D2 or ConsoleKey.NumPad2:
                                 Console.Write("phonenumber: ");
+                                bool exit = true;
+                                do
+                                {
                                 phone = Console.ReadLine();
+                                    if (cusMM.customerRep.PhoneValids(phone) == "not valid")
+                                    {
+                                        exit = false;
+                                    }
+                                } while (exit);
+
                                 Console.Clear();
                                 carMM.carRepo.GetAllCars();
                                 Console.Write("numberplate: ");
                                 string numberplate = Console.ReadLine();
                                 Console.Clear();
                                 DateTime rFrom = DateTime.Now;
-                                Console.WriteLine("dd mm yy:");
+
                                 DateTime rTo = RentingPlan();
                                 cusMM.customerRep.MakeReservation(phone, numberplate, rFrom, rTo);
                                 break;

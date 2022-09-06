@@ -46,7 +46,14 @@ namespace Rent_A_Car.Repo
             reservation = new Reservation(customerPhone, carPlate, reservedFrom, reservedTo);
             _reservation.Add(reservation);
 
-            return $"Customer test";
+            return $"Created Customer";
+        }
+
+        public string? PhoneValids(string phone)
+        {
+            Customer? customer = _customer.Find(customer => phone == customer.CustomerPhone);
+            return customer != null ? "Valid Phone" : "not valid";
+            
         }
     }
 }
