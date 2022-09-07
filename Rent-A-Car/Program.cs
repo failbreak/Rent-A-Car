@@ -200,9 +200,11 @@ namespace Rent_A_Car
         }
         public static void CarMenu(CarMM carMM)
         {
-            List<string> CarMenu = new() { "Register Car", "Edit Car", "Delete car" };
+            Console.Clear();
+            List<string> CarMenu = new() { "Register Car", "Edit Car", "Delete car", "Show all cars" };
             Console.WriteLine("Car Menu:");
             DisplayMenu(CarMenu);
+
             switch (Console.ReadKey(true).Key)
             {
                 #region Register Car
@@ -311,6 +313,10 @@ namespace Rent_A_Car
                     carMM.carRepo.DeleteCar(numberplate);
                     break;
                 #endregion
+                case ConsoleKey.D4 or ConsoleKey.NumPad4:
+                    carMM.carRepo.GetAllCars();
+                    Console.ReadKey();
+                    break;
                 default:
                     Console.Clear();
                     break;
@@ -362,6 +368,9 @@ namespace Rent_A_Car
                     carMM.carRepo.ReturnedCar(numberplate, km);
 
                     break;
+
+                
+                    //cusMM.customerRep.EditCustomer()
                 default:
                     Console.Clear();
                     break;
@@ -386,12 +395,13 @@ namespace Rent_A_Car
                         case ConsoleKey.D2 or ConsoleKey.NumPad2: // Customer menu starts here
                             CustomerMenu(carMM, cusMM);
                             break;
-
+                    case ConsoleKey.D3 or ConsoleKey.NumPad3:
+                        Environment.Exit(0);
+                        break;
                         default:
                         Console.Clear();
                         break;
                         }
-                    break;
                 }
             }
         }

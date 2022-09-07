@@ -51,17 +51,26 @@ namespace Rent_A_Car.Repo
         public void DeleteCar(string num) => _Cars.Remove(_Cars.Find(car => num == car.NumberPlate));
         public string EditCar(string num, int seats, string brandnd, string color, int km)
         {
-            Car caren = GetCar(num);
-            caren.CarSeats = seats;
-            caren.CarBrand = brandnd;
-            caren.CarColor = color;
-            return $"Car edit with: \n" +
-                    $"NumberPlate: {num}\n" +
-                    $"Seats: {seats}\n" +
-                    $"Color: {color}\n" +
-                    $"Brand: {brandnd}" +
-                    $"Km: {km}";
+            try
+            {
+                Car caren = GetCar(num);
+                caren.CarSeats = seats;
+                caren.CarBrand = brandnd;
+                caren.CarColor = color;
+                return $"Car edit with: \n" +
+                        $"NumberPlate: {num}\n" +
+                        $"Seats: {seats}\n" +
+                        $"Color: {color}\n" +
+                        $"Brand: {brandnd}" +
+                        $"Km: {km}";
+            }
+            catch (NullReferenceException e)
+            {
+                return "car not found";
+            }
+            
         }
+
         public Car ReturnedCar(string numberplate, int km)
         {
             Car car = GetCar(numberplate);

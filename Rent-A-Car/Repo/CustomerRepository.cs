@@ -48,6 +48,24 @@ namespace Rent_A_Car.Repo
             return customer;
         }
 
+        public string EditCustomer(int id, string phone, string name)
+        {
+            try
+            {
+                Customer caren = GetCustomer(id);
+                caren.CustomerPhone = phone;
+                caren.CustomerName = name;
+                return $"Customer edit with: \n" +
+                        $"name: {name}\n" +
+                        $"phone: {phone}\n";
+            }
+            catch (NullReferenceException e)
+            {
+                return "Customer not found";
+            }
+
+        }
+
         public string MakeReservation(string customerPhone, string carPlate, DateTime reservedFrom, DateTime reservedTo)
         {
             reservation = new Reservation(customerPhone, carPlate, reservedFrom, reservedTo);
