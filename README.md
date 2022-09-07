@@ -47,13 +47,17 @@ og så skal man kunne reservere en af deres Porsche 911´er til en bestemt dato
 
 Menu: Den er ret simpel som du kan se ud fra billedet
 Main menu:
+
 ![image](https://user-images.githubusercontent.com/69219123/188803076-9d87520f-28a4-4ca9-933a-d7433e0e45f8.png)
 
+
 Car menu:
+
 ![image](https://user-images.githubusercontent.com/69219123/188803151-af9679f3-e9ab-4a5c-aa80-945644b1826c.png)
 
-Customer menu 
+Customer menu:
 
+![image](https://user-images.githubusercontent.com/69219123/188804337-9175deb2-9e00-42a2-8f52-82a6f2114546.png)
 
 
 ## Tags
